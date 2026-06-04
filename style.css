@@ -122,10 +122,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 16px 24px;
+  padding: 20px 24px;
   display: flex;
   align-items: center;
   gap: 32px;
+  transition: padding var(--transition);
+}
+.navbar.scrolled .nav-container {
+  padding: 10px 24px;
 }
 .nav-logo {
   display: flex;
@@ -1527,9 +1531,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
    LOGO STYLING
    ============================================================ */
 .nav-logo-img {
-  height: 48px;
+  height: 64px;
   width: auto;
   object-fit: contain;
+  transition: height var(--transition);
+}
+.navbar.scrolled .nav-logo-img {
+  height: 48px;
 }
 .footer-logo-img {
   height: 54px;
@@ -2019,10 +2027,22 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .produk-grid { grid-template-columns: 1fr; gap: 24px; max-width: 480px; margin: 40px auto 0; }
 
   /* Navbar */
+  .nav-container {
+    padding: 12px 20px;
+  }
+  .navbar.scrolled .nav-container {
+    padding: 8px 20px;
+  }
+  .nav-logo-img {
+    height: 52px;
+  }
+  .navbar.scrolled .nav-logo-img {
+    height: 40px;
+  }
   .nav-links { 
     display: none; 
-    position: fixed;
-    top: 64px; left: 0; right: 0;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
     background: rgba(253,246,236,0.98);
     backdrop-filter: blur(16px);
     flex-direction: column;
