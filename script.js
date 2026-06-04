@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initTabSystem();
   initKandunganBars();
   initSmoothScroll();
+  initProductDropdown();
+  initMarketplaceModal();
+  initBTSVideo();
 });
 
 /* ============================================================
@@ -314,3 +317,111 @@ function initSmoothScroll() {
   floatingWA.style.pointerEvents = 'none';
   floatingWA.style.transition = 'opacity 0.4s ease, max-width 0.4s ease, box-shadow 0.3s ease, transform 0.3s ease';
 })();
+
+/* ============================================================
+   PRODUCT DROPDOWN TOGGLE (Mobile & Desktop Accessibility)
+   ============================================================ */
+function initProductDropdown() {
+  const toggle = document.getElementById('produkToggle');
+  const menu = document.getElementById('produkMenu');
+  const wrap = toggle ? toggle.closest('.nav-dropdown-wrap') : null;
+  if (!toggle || !menu || !wrap) return;
+
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = wrap.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+
+  // Close dropdown if clicking elsewhere
+  document.addEventListener('click', (e) => {
+    if (!wrap.contains(e.target)) {
+      wrap.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Handle escape key to close menu
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      wrap.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+
+/* ============================================================
+   MARKETPLACE ORDER MODAL
+   ============================================================ */
+function initMarketplaceModal() {
+  const modal = document.getElementById('marketplaceModal');
+  const closeBtn = document.getElementById('modalClose');
+  const triggerBtns = [];
+  
+  const navBtn = document.getElementById('navOrderBtn');
+  const heroBtn = document.getElementById('hero-order-btn');
+  const productBtns = document.querySelectorAll('.btn-produk-order');
+
+  if (navBtn) triggerBtns.push(navBtn);
+  if (heroBtn) triggerBtns.push(heroBtn);
+  productBtns.forEach(btn => triggerBtns.push(btn));
+
+  if (!modal || !closeBtn) return;
+
+  const openModal = (e) => {
+    if (e) e.preventDefault();
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeModal = () => {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  triggerBtns.forEach(btn => {
+    btn.addEventListener('click', openModal);
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('open')) {
+      closeModal();
+    }
+  });
+}
+
+/* ============================================================
+   BEHIND THE SCENES VIDEO PLAYER (Lazy Load)
+   ============================================================ */
+function initBTSVideo() {
+  const playBtn = document.getElementById('btsPlayBtn');
+  const thumb = document.querySelector('.bts-video-thumb');
+  const iframe = document.getElementById('btsIframe');
+  
+  if (!playBtn || !thumb || !iframe) return;
+
+  const playVideo = () => {
+    const src = iframe.dataset.src;
+    // Set fallback video ID (ScMzIvxBSi4 is a beautiful natural oil extraction process)
+    let finalSrc = src;
+    if (src && src.includes('/embed/?')) {
+      finalSrc = src.replace('/embed/?', '/embed/ScMzIvxBSi4?');
+    }
+    
+    iframe.src = finalSrc;
+    iframe.classList.remove('hidden');
+    thumb.style.display = 'none';
+  };
+
+  playBtn.addEventListener('click', playVideo);
+  thumb.addEventListener('click', playVideo);
+}
+

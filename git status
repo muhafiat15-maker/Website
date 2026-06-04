@@ -1,0 +1,108 @@
+warning: in the working copy of 'index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'script.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'style.css', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/index.html b/index.html[m
+[1mindex d7ccd8f..d3939c3 100644[m
+[1m--- a/index.html[m
+[1m+++ b/index.html[m
+[36m@@ -4,10 +4,7 @@[m
+   <meta charset="UTF-8" />[m
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />[m
+   <title>EYFA NATURAL OIL – Minyak Kemiri Murni untuk Rambut & Kulit Sehat</title>[m
+[31m-  <meta name="description" content="EYFA NATURAL OIL – Minyak Kemiri Murni dari biji kemiri pilihan, tanpa bahan kimia tambahan. Perawatan alami rambut dan kulit untuk seluruh keluarga." />[m
+[31m-  <meta name="keywords" content="minyak kemiri, eyfa natural oil, perawatan rambut alami, minyak kemiri murni, herbal alami" />[m
+[31m-  <meta property="og:title" content="EYFA NATURAL OIL – Minyak Kemiri Murni" />[m
+[31m-  <meta property="og:description" content="Perawatan rambut dan kulit alami untuk seluruh keluarga." />[m
+[32m+[m[32m  <meta name="description" content="EYFA NATURAL OIL – 3 Varian Minyak Kemiri: Murni, Bakar, Hitam. Tanpa bahan kimia, aman untuk seluruh keluarga." />[m
+   <link rel="preconnect" href="https://fonts.googleapis.com" />[m
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />[m
+   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />[m
+[36m@@ -15,645 +12,599 @@[m
+ </head>[m
+ <body>[m
+ [m
+[31m-  <!-- ===== NAVBAR ===== -->[m
+[31m-  <nav class="navbar" id="navbar">[m
+[31m-    <div class="nav-container">[m
+[31m-      <div class="nav-logo">[m
+[31m-        <span class="logo-leaf">🌿</span>[m
+[31m-        <div class="logo-text">[m
+[31m-          <span class="logo-brand">EYFA</span>[m
+[31m-          <span class="logo-sub">NATURAL OIL</span>[m
+[31m-        </div>[m
+[31m-      </div>[m
+[31m-      <ul class="nav-links" id="navLinks">[m
+[31m-        <li><a href="#tentang">Tentang</a></li>[m
+[31m-        <li><a href="#kandungan">Kandungan</a></li>[m
+[31m-        <li><a href="#manfaat">Manfaat</a></li>[m
+[31m-        <li><a href="#cara-pakai">Cara Pakai</a></li>[m
+[31m-        <li><a href="#testimoni">Testimoni</a></li>[m
+[31m-        <li><a href="#kontak">Kontak</a></li>[m
+[31m-      </ul>[m
+[31m-      <a href="https://wa.me/6287872252079?text=Halo%2C%20saya%20ingin%20memesan%20Eyfa%20Minyak%20Kemiri" class="nav-cta" target="_blank" rel="noopener">Pesan Sekarang</a>[m
+[31m-      <button class="hamburger" id="hamburger" aria-label="Menu">[m
+[31m-        <span></span><span></span><span></span>[m
+[31m-      </button>[m
+[32m+[m[32m<!-- ===== MARKETPLACE MODAL ===== -->[m
+[32m+[m[32m<div class="modal-overlay" id="marketplaceModal" role="dialog" aria-modal="true" aria-label="Pilih Toko">[m
+[32m+[m[32m  <div class="modal-box">[m
+[32m+[m[32m    <button class="modal-close" id="modalClose" aria-label="Tutup">&#x2715;</button>[m
+[32m+[m[32m    <div class="modal-header">[m
+[32m+[m[32m      <img src="assets/logo-eyfa.png" alt="EYFA" class="modal-logo" />[m
+[32m+[m[32m      <h3>Pilih Platform Pemesanan</h3>[m
+[32m+[m[32m      <p>Temukan produk EYFA NATURAL OIL di marketplace favorit Anda</p>[m
+     </div>[m
+[31m-  </nav>[m
+[31m-[m
+[31m-  <!-- ===== HERO SECTION ===== -->[m
+[31m-  <section class="hero" id="hero">[m
+[31m-    <div class="hero-bg-ornament">[m
+[31m-      <div class="orb orb-1"></div>[m
+[31m-      <div class="orb orb-2"></div>[m
+[31m-      <div class="orb orb-3"></div>[m
+[32m+[m[32m    <div class="modal-platforms">[m
+[32m+[m[32m      <a href="https://wa.me/6287872252079?text=Halo%20Eyfa%2C%20saya%20ingin%20memesan%20Minyak%20Kemiri" class="platform-btn platform-wa" target="_blank" rel="noopener" id="modal-wa">[m
+[32m+[m[32m        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>[m
+[32m+[m[32m        <span>WhatsApp</span>[m
+[32m+[m[32m        <small>Chat Langsung</small>[m
+[32m+[m[32m      </a>[m
+[32m+[m[32m      <a href="https://shopee.co.id/yfzvd68jae?entryPoint=ShopBySearch&searchKeyword=eyfa" class="platform-btn platform-shopee" target="_blank" rel="noopener" id="modal-shopee">[m
+[32m+[m[32m        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M19.493 6.66a.75.75 0 00-.732-.576H5.239a.75.75 0 00-.732.576L3.018 14.4a.75.75 0 00.732.924h16.5a.75.75 0 00.732-.924L19.493 6.66zM12 4.5a2.25 2.25 0 100-4.5 2.25 2.25 0 000 4.5z"/></svg>[m
+[32m+[m[32m        <span>Shopee</span>[m
+[32m+[m[32m        <small>Eyfa Natural Oil</small>[m
+[32m+[m[32m      </a>[m
+[32m+[m[32m      <a href="https://vt.tokopedia.com/t/ZS92H3LvSGbYQ-3wtig/" class="platform-btn platform-tiktok" target="_blank" rel="noopener" id="modal-tiktokshop">[m
+[32m+[m[32m        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.67a8.18 8.18 0 004.78 1.52V6.72a4.85 4.85 0 01-1.01-.03z"/></svg>[m
+[32m+[m[32m        <span>TikTok Shop</span>[m
+[32m+[m[32m        <small>Galeri EYFA</small>[m
+[32m+[m[32m      </a>[m
+[32m+[m[41m      [m
+     </div>[m
+[31m-    <div class="hero-container">[m
+[31m-      <div class="hero-content" data-aos="fade-right">[m
+[31m-        <div class="hero-badge">[m
+[31m-          <span class="badge-dot"></span>[m
+[31m-          100% Alami &amp; Murni[m
+[31m-        </div>[m
+[31m-        <h1 class="hero-headline">[m
+[31m-          Rahasia Rambut Sehat<br />[m
+[31m-          dan Kulit Terawat<br />[m
+[31m-          <em>Secara Alami</em>[m
+[31m-        </h1>[m
+[31m-        <p class="hero-subheadline">[m
+[31m-          Minyak Kemiri Murni dari biji kemiri pilihan yang diproses secara higienis tanpa bahan kimia tambahan untuk perawatan rambut dan kulit seluruh keluarga.[m
+[31m-        </p>[m
+[31m-        <div class="hero-stats">[m
+[31m-          <div class="stat-item">[m
+[31m-            <span class="stat-num">100%</span>[m
+[31m-            <span class="stat-label">Alami</span>[m
+[31m-          </div>[m
+[31m-          <div class="stat-divider"></div>[m
+[31m-          <div class="stat-item">[m
+[31m-            <span class="stat-num">0%</span>[m
+[31m-            <span class="stat-label">Pengawet</span>[m
+[31m-          </div>[m
+[31m-          <div class="stat-divider"></div>[m
+[31m-          <div class="stat-item">[m
+[31m-            <span class="stat-num">∞</span>[m
+[31m-            <span class="stat-label">Semua Us
