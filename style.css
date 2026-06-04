@@ -1915,15 +1915,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.7);
 }
-.bts-iframe {
+.bts-local-video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
+  object-fit: cover;
   z-index: 1;
-}
-.bts-iframe.hidden {
-  display: none;
+  background: #000;
 }
 .bts-highlights {
   display: grid;
