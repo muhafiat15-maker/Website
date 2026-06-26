@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initProductDropdown();
   initMarketplaceModal();
   initBTSVideo();
+  initBackgroundMusic();
 });
 
 /* ============================================================
@@ -424,4 +425,75 @@ function initBTSVideo() {
   playBtn.addEventListener('click', playVideo);
   thumb.addEventListener('click', playVideo);
 }
+
+/* ============================================================
+   BACKGROUND MUSIC CONTROLLER
+   ============================================================ */
+function initBackgroundMusic() {
+  const toggleBtn = document.getElementById('musicToggle');
+  const audio = document.getElementById('bgMusic');
+  
+  if (!toggleBtn || !audio) return;
+  
+  const iconMuted = toggleBtn.querySelector('.icon-muted');
+  const iconPlaying = toggleBtn.querySelector('.icon-playing');
+  const tooltip = toggleBtn.querySelector('.music-tooltip');
+  
+  // Atur volume sedikit pelan agar menjadi musik latar yang nyaman (35%)
+  audio.volume = 0.35;
+  
+  let isPlaying = false;
+  
+  const playMusic = () => {
+    audio.play().then(() => {
+      isPlaying = true;
+      toggleBtn.classList.remove('pulse-active');
+      iconMuted.classList.add('hidden');
+      iconPlaying.classList.remove('hidden');
+      toggleBtn.setAttribute('aria-label', 'Senyapkan Musik Latar Belakang');
+      toggleBtn.title = 'Senyapkan Musik';
+      if (tooltip) {
+        tooltip.textContent = 'Senyapkan Musik';
+      }
+      localStorage.setItem('bgMusicState', 'playing');
+    }).catch(err => {
+      console.log('Autoplay diblokir oleh browser. Menunggu interaksi pengguna.');
+      pauseMusic(); // Fallback jika browser memblokir putar otomatis
+    });
+  };
+  
+  const pauseMusic = () => {
+    audio.pause();
+    isPlaying = false;
+    toggleBtn.classList.add('pulse-active');
+    iconMuted.classList.remove('hidden');
+    iconPlaying.classList.add('hidden');
+    toggleBtn.setAttribute('aria-label', 'Putar Musik Latar Belakang');
+    toggleBtn.title = 'Putar Musik';
+    if (tooltip) {
+      tooltip.textContent = 'Putar Musik';
+    }
+    localStorage.setItem('bgMusicState', 'paused');
+  };
+  
+  // Toggle status musik saat tombol diklik
+  toggleBtn.addEventListener('click', () => {
+    if (isPlaying) {
+      pauseMusic();
+    } else {
+      playMusic();
+    }
+  });
+  
+  // Cek preferensi sesi sebelumnya
+  const musicPref = localStorage.getItem('bgMusicState');
+  if (musicPref === 'playing') {
+    // Coba putar otomatis jika sebelumnya sedang menyala
+    playMusic();
+  } else {
+    // Default: musik mati dan tombol berdenyut memanggil pengguna untuk menyalakan
+    pauseMusic();
+  }
+}
+
 
